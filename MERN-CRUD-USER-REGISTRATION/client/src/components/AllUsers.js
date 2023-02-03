@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableRow, styled, Button, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { getUsers, deleteUser } from '../services/api'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const StyledTable = styled(Table)`
@@ -26,8 +26,6 @@ const AllUsers = () => {
 
     const [users, setUsers] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
         getAllUsers()
     }, [users])
@@ -39,7 +37,6 @@ const AllUsers = () => {
 
     const deleteUserDetails = async (id) => {
         await deleteUser(id)
-        navigate('/')
     }
 
     return (
