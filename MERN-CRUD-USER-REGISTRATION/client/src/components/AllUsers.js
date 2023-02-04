@@ -28,7 +28,7 @@ const AllUsers = () => {
 
     useEffect(() => {
         getAllUsers()
-    }, [users])
+    }, [])
 
     const getAllUsers = async () => {
         const response = await getUsers()
@@ -37,6 +37,7 @@ const AllUsers = () => {
 
     const deleteUserDetails = async (id) => {
         await deleteUser(id)
+        getAllUsers()
     }
 
     return (
